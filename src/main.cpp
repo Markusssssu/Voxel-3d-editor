@@ -9,6 +9,13 @@
 #include <GLFW/glfw3.h>
 
 
+//-----------------------------------------------------------------------------
+// [SECTION] User Component Include
+//-----------------------------------------------------------------------------
+
+#include "application.h"
+#include "treeDir.h"
+#include "canvas.h"
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1900) && !defined(IMGUI_DISABLE_WIN32_FUNCTIONS)
 #pragma comment(lib, "legacy_stdio_definitions")
@@ -52,7 +59,7 @@ int main(int, char**)
 #endif
 
     float main_scale = ImGui_ImplGlfw_GetContentScaleForMonitor(glfwGetPrimaryMonitor());
-    GLFWwindow* window = glfwCreateWindow((int)(1280 * main_scale), (int)(800 * main_scale), "Dear ImGui GLFW+OpenGL3 example", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow((int)(1280 * main_scale), (int)(800 * main_scale), "Voxel 3D Editor (OpenGL & GLFW)", nullptr, nullptr);
     if (window == nullptr)
         return 1;
     glfwMakeContextCurrent(window);
@@ -94,17 +101,13 @@ int main(int, char**)
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        /*===================TreeNode Widget==================*/
 
-        /*===================================================*/
+        //-----------------------------------------------------------------------------
+        // [SECTION] CORE
+        //-----------------------------------------------------------------------------
+        ApplicationUI::CoreUI();
+        TreeScapeUI::LayoutUI();
 
-        /*===================Label Widget==================*/
-
-        /*===================================================*/
-
-        /*===================Canvas Render==================*/
-
-        /*===================================================*/
 
 
 
@@ -116,9 +119,8 @@ int main(int, char**)
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         glfwSwapBuffers(window);
-
-
     }
+
 #ifdef __EMSCRIPTEN__
     EMSCRIPTEN_MAINLOOP_END;
 #endif
