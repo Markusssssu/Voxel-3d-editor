@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(voxel)
+project(Voxel-3d-editor)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -19,16 +19,17 @@ set(SOURCES
 )
 
 
-add_executable(voxel ${SOURCES})
+add_executable(Voxel-3d-editor ${SOURCES})
 
-target_include_directories(voxel PRIVATE
+target_include_directories(Voxel-3d-editor PRIVATE
         ${IMGUI_DIR}
         ${BACKENDS_DIR}
 )
+
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/glfw)
 
 if (APPLE)
-    target_link_libraries(voxel
+    target_link_libraries(Voxel-3d-editor
             "-framework OpenGL"
             "-framework Cocoa"
             "-framework IOKit"
@@ -36,7 +37,7 @@ if (APPLE)
             glfw
     )
 elseif (UNIX)
-    target_link_libraries(voxel glfw GL)
+    target_link_libraries(Voxel-3d-editor glfw GL)
 elseif (WIN32)
-    target_link_libraries(voxel glfw gdi32 opengl32 imm32)
+    target_link_libraries(Voxel-3d-editor glfw gdi32 opengl32 imm32)
 endif ()

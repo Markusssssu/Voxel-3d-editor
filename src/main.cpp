@@ -94,42 +94,19 @@ int main(int, char**)
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        /*===================TreeNode Widget================== */
-        {
-            bool isOpen = true;
-            ImGui::TreeNode("Tree Node");
-            if (isOpen) {
-                if (ImGui::TreeNode("Child A")) {
-                    ImGui::Text("Leaf 1");
-                    ImGui::Text("Leaf 2");
-                    ImGui::TreePop();
-                }
+        /*===================TreeNode Widget==================*/
 
-                if (ImGui::TreeNode("Child B")) {
-                    ImGui::Text("Leaf 3");
-                    ImGui::TreePop();
-                }
+        /*===================================================*/
 
-                if (ImGui::TreeNode("Child B")) {
-                    ImGui::Text("Leaf 3");
-                    ImGui::TreePop();
-                }
+        /*===================Label Widget==================*/
 
-                ImGui::TreePop();
-            }
-        }
-        /*=================================================== */
+        /*===================================================*/
 
-        /*===================Label Widget================== */
-        {
-            bool isOpen = true;
-            ImGui::Begin("Start Settings");
+        /*===================Canvas Render==================*/
 
-            ImGui::Button("OpenGL");
+        /*===================================================*/
 
-            ImGui::End();
-        }
-        /*=================================================== */
+
 
         ImGui::Render();
         int display_w, display_h;
