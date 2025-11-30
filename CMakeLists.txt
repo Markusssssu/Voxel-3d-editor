@@ -3,11 +3,12 @@ project(voxel)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/src)
 set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/lib/imgui)
 set(BACKENDS_DIR ${CMAKE_SOURCE_DIR}/backends)
 
 set(SOURCES
-        ${CMAKE_SOURCE_DIR}/src/main.cpp
+        ${SOURCE_DIR}/main.cpp
         ${IMGUI_DIR}/imgui.cpp
         ${IMGUI_DIR}/imgui_demo.cpp
         ${IMGUI_DIR}/imgui_draw.cpp
@@ -17,13 +18,13 @@ set(SOURCES
         ${BACKENDS_DIR}/imgui_impl_opengl3.cpp
 )
 
+
 add_executable(voxel ${SOURCES})
 
 target_include_directories(voxel PRIVATE
         ${IMGUI_DIR}
         ${BACKENDS_DIR}
 )
-
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/glfw)
 
 if (APPLE)

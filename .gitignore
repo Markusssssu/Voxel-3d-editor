@@ -50,12 +50,14 @@ build-*/
 *.dll
 *.lib
 
+
 # --- CLion / JetBrains ---
 .idea/
 cmake-build-*/
 
 # --- VS Code ---
 .vscode/
+
 
 # --- ImGui / OpenGL ---
 # Обычно это только исходники, поэтому игнорировать нечего.
